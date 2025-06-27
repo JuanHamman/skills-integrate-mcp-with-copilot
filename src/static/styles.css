@@ -74,6 +74,47 @@ section h3 {
   margin-bottom: 8px;
 }
 
+.activity-card form.register-form {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.activity-card .register-email {
+  flex: 1;
+  padding: 7px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+.activity-card form.register-form button {
+  padding: 7px 12px;
+  font-size: 15px;
+  border-radius: 4px;
+  background: #1a237e;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.activity-card form.register-form button:hover {
+  background: #3949ab;
+}
+
+@media (max-width: 600px) {
+  #filters-container {
+    padding: 10px;
+    font-size: 15px;
+  }
+
+  .activity-card form.register-form {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
 /* New styles for participants section */
 .participants-container {
   margin-top: 15px;
@@ -197,4 +238,41 @@ footer {
   margin-top: 30px;
   padding: 20px;
   color: #666;
+}
+
+#filters-container {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+  max-width: 500px;
+  width: 100%;
+}
+
+#filters-container .form-group {
+  margin-bottom: 10px;
+}
+
+#filters-container label {
+  font-weight: bold;
+  margin-bottom: 3px;
+  display: block;
+}
+
+#filters-container input,
+#filters-container select {
+  width: 100%;
+  padding: 7px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 600px) {
+  #filters-container {
+    padding: 10px;
+    font-size: 15px;
+  }
 }
