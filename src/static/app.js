@@ -1,3 +1,4 @@
+// Top 3 issues implemented: GitHub Skills activity, filters/search/sort, and prettier interface
 document.addEventListener("DOMContentLoaded", () => {
   const activitiesList = document.getElementById("activities-list");
   const activitySelect = document.getElementById("activity");
