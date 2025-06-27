@@ -208,6 +208,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Firework effect logic
+  function launchFirework() {
+    const firework = document.createElement('div');
+    firework.className = 'firework-effect';
+    document.body.appendChild(firework);
+    // Animate upward
+    setTimeout(() => {
+      firework.classList.add('explode');
+    }, 300);
+    // Remove after animation
+    setTimeout(() => {
+      firework.remove();
+    }, 1800);
+  }
+
   // Add filter/search/sort listeners
   if (categoryFilter) categoryFilter.addEventListener("change", renderActivities);
   if (searchInput) searchInput.addEventListener("input", renderActivities);
@@ -215,4 +230,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize app
   fetchActivities();
+  const fireworkBtn = document.getElementById('firework-btn');
+  if (fireworkBtn) fireworkBtn.addEventListener('click', launchFirework);
 });
