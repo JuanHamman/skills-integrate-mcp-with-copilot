@@ -1,4 +1,22 @@
+// Top 3 issues implemented: GitHub Skills activity, filters/search/sort, and prettier interface
+// Dark mode toggle logic
+function setTheme(theme) {
+  document.body.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
+  const toggleBtn = document.getElementById('dark-mode-toggle');
+  if (toggleBtn) toggleBtn.textContent = theme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+}
+function toggleTheme() {
+  const current = document.body.getAttribute('data-theme') || 'light';
+  setTheme(current === 'dark' ? 'light' : 'dark');
+}
 document.addEventListener("DOMContentLoaded", () => {
+  // Dark mode setup
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  setTheme(savedTheme);
+  const toggleBtn = document.getElementById('dark-mode-toggle');
+  if (toggleBtn) toggleBtn.addEventListener('click', toggleTheme);
+
   const activitiesList = document.getElementById("activities-list");
   const activitySelect = document.getElementById("activity");
   const messageDiv = document.getElementById("message");
@@ -190,6 +208,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Firework effect logic
+  function launchFirework() {
+    const firework = document.createElement('div');
+    firework.className = 'firework-effect';
+    document.body.appendChild(firework);
+    // Animate upward
+    setTimeout(() => {
+      firework.classList.add('explode');
+    }, 300);
+    // Remove after animation
+    setTimeout(() => {
+      firework.remove();
+    }, 1800);
+  }
+
   // Add filter/search/sort listeners
   if (categoryFilter) categoryFilter.addEventListener("change", renderActivities);
   if (searchInput) searchInput.addEventListener("input", renderActivities);
@@ -197,4 +230,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize app
   fetchActivities();
+  const fireworkBtn = document.getElementById('firework-btn');
+  if (fireworkBtn) fireworkBtn.addEventListener('click', launchFirework);
 });
