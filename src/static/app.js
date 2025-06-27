@@ -1,5 +1,22 @@
 // Top 3 issues implemented: GitHub Skills activity, filters/search/sort, and prettier interface
+// Dark mode toggle logic
+function setTheme(theme) {
+  document.body.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
+  const toggleBtn = document.getElementById('dark-mode-toggle');
+  if (toggleBtn) toggleBtn.textContent = theme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+}
+function toggleTheme() {
+  const current = document.body.getAttribute('data-theme') || 'light';
+  setTheme(current === 'dark' ? 'light' : 'dark');
+}
 document.addEventListener("DOMContentLoaded", () => {
+  // Dark mode setup
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  setTheme(savedTheme);
+  const toggleBtn = document.getElementById('dark-mode-toggle');
+  if (toggleBtn) toggleBtn.addEventListener('click', toggleTheme);
+
   const activitiesList = document.getElementById("activities-list");
   const activitySelect = document.getElementById("activity");
   const messageDiv = document.getElementById("message");

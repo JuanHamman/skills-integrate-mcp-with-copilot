@@ -15,6 +15,11 @@ body {
   background-color: #f5f5f5;
 }
 
+body[data-theme="dark"] {
+  background-color: #181a1b;
+  color: #e0e0e0;
+}
+
 header {
   text-align: center;
   padding: 20px 0;
@@ -22,6 +27,11 @@ header {
   background-color: #1a237e;
   color: white;
   border-radius: 5px;
+}
+
+body[data-theme="dark"] header {
+  background-color: #23272f;
+  color: #fff;
 }
 
 header h1 {
@@ -50,6 +60,13 @@ section {
   max-width: 500px;
 }
 
+body[data-theme="dark"] section,
+body[data-theme="dark"] #filters-container {
+  background-color: #23272f;
+  color: #e0e0e0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+}
+
 section h3 {
   margin-bottom: 20px;
   padding-bottom: 10px;
@@ -65,9 +82,18 @@ section h3 {
   background-color: #f9f9f9;
 }
 
+body[data-theme="dark"] .activity-card {
+  background-color: #23272f;
+  border-color: #333;
+}
+
 .activity-card h4 {
   margin-bottom: 10px;
   color: #0066cc;
+}
+
+body[data-theme="dark"] .activity-card h4 {
+  color: #90caf9;
 }
 
 .activity-card p {
@@ -99,8 +125,15 @@ section h3 {
   transition: background 0.2s;
 }
 
-.activity-card form.register-form button:hover {
-  background: #3949ab;
+body[data-theme="dark"] button,
+body[data-theme="dark"] .activity-card form.register-form button {
+  background-color: #3949ab;
+  color: #fff;
+}
+
+body[data-theme="dark"] button:hover,
+body[data-theme="dark"] .activity-card form.register-form button:hover {
+  background-color: #1a237e;
 }
 
 @media (max-width: 600px) {
@@ -126,6 +159,10 @@ section h3 {
   margin-bottom: 8px;
   color: #1a237e;
   font-size: 16px;
+}
+
+body[data-theme="dark"] .participants-section h5 {
+  color: #90caf9;
 }
 
 .participants-section ul {
@@ -162,8 +199,16 @@ section h3 {
   border-radius: 3px;
 }
 
+body[data-theme="dark"] .delete-btn {
+  color: #ef5350;
+}
+
 .delete-btn:hover {
   background-color: #ffebee;
+}
+
+body[data-theme="dark"] .delete-btn:hover {
+  background-color: #2d2323;
 }
 
 .participants-section p {
@@ -188,6 +233,13 @@ section h3 {
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 16px;
+}
+
+body[data-theme="dark"] .form-group input,
+body[data-theme="dark"] .form-group select {
+  background: #181a1b;
+  color: #e0e0e0;
+  border: 1px solid #444;
 }
 
 button {
@@ -217,9 +269,21 @@ button:hover {
   border: 1px solid #a5d6a7;
 }
 
+body[data-theme="dark"] .success {
+  background-color: #1b5e20;
+  color: #a5d6a7;
+  border: 1px solid #388e3c;
+}
+
 .error {
   background-color: #ffebee;
   color: #c62828;
+  border: 1px solid #ef9a9a;
+}
+
+body[data-theme="dark"] .error {
+  background-color: #b71c1c;
+  color: #ffcdd2;
   border: 1px solid #ef9a9a;
 }
 
@@ -227,6 +291,12 @@ button:hover {
   background-color: #d1ecf1;
   color: #0c5460;
   border: 1px solid #bee5eb;
+}
+
+body[data-theme="dark"] .info {
+  background-color: #263238;
+  color: #4fc3f7;
+  border: 1px solid #0288d1;
 }
 
 .hidden {
@@ -240,6 +310,10 @@ footer {
   color: #666;
 }
 
+body[data-theme="dark"] footer {
+  color: #888;
+}
+
 #filters-container {
   background: white;
   padding: 20px;
@@ -248,6 +322,12 @@ footer {
   margin-bottom: 30px;
   max-width: 500px;
   width: 100%;
+}
+
+body[data-theme="dark"] #filters-container {
+  background: #23272f;
+  color: #fff;
+  border: 1px solid #444;
 }
 
 #filters-container .form-group {
@@ -275,4 +355,26 @@ footer {
     padding: 10px;
     font-size: 15px;
   }
+}
+
+/* Toggle button styles */
+#dark-mode-toggle {
+  position: fixed;
+  top: 18px;
+  right: 24px;
+  z-index: 100;
+  background: #fff;
+  color: #23272f;
+  border: 1px solid #bbb;
+  border-radius: 20px;
+  padding: 7px 18px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+body[data-theme="dark"] #dark-mode-toggle {
+  background: #23272f;
+  color: #fff;
+  border: 1px solid #444;
 }
